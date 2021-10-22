@@ -1,13 +1,19 @@
-function whereIsMyFood(fridge , item){
+function validateRecipe(fridge , ingredients){
+    var check = 0;
     for(var i = 0; i< fridge.length ; i++){
-        if(fridge[i] == item){
-            return i;
+        for(var j = 0 ; j<ingredients.length ; j++ ){
+            if(ingredients[j] == fridge[i]){
+                check ++;
+                if(check == ingredients.length){
+                    return true;
+
+                }
+            }
         }
-       
     }
-    return-1;
+   return false;
 }
-var item = "banana";
-var fridge = ["milk" , "icecream"  , "meat" , "banana" ];
-var result = whereIsMyFood(fridge , item);
+var ingredients = ["banana" , "milk" , "grape"];
+var fridge = ["milk" , "icecream"  , "grape" , "banana" ];
+var result = validateRecipe(fridge , ingredients);
 console.log(result);
